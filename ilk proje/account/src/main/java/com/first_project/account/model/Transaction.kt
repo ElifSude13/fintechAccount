@@ -1,6 +1,6 @@
-package com.firstProject.account.model
+package com.first_project.account.model
 
-import javax.persistence.*
+import jakarta.persistence.*
 import java.util.UUID
 import java.math.BigDecimal
 import java.time.LocalDateTime

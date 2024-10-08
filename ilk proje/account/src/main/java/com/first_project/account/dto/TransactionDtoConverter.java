@@ -1,7 +1,8 @@
-package com.firstProject.account.dto;
+package com.first_project.account.dto;
 
-import com.firstProject.account.moderç.Transaction;
 import org.springframework.stereotype.Component;
+
+import com.first_project.account.moderç.Transaction;
 
 @Component
 public class TransactionDtoConverter {

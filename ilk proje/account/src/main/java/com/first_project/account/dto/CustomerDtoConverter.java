@@ -1,6 +1,7 @@
-package com.firstProject.account.dto;
+package com.first_project.account.dto;
 
 import org.springframework.stereotype.Component;
+import com.firstProject.account.model.Customer;
 
 @Component
 public class CustomerDtoConverter {

@@ -1,7 +1,7 @@
-package com.firstProject.account.dto;
+package com.first_project.account.dto;
 
 import org.springframework.stereotype.Component;
-import com.firstProject.account.model.Account;
+import com.first_project.account.model.Account;
 
 @Component
 public class AccountDtoConveter {
@@ -17,7 +17,8 @@ public class AccountDtoConveter {
     public AccountDto convet(Account from){
         return new AccountDto(from.getId(), from.getBalance(), from.getCreationDate()
         customerDtoConverter.convertToAccountCustomer(from.getCustomer()),
-        form.getTransaction().stream().map(t -> transactionDtoConverter.convert(t)).collect(CollectToSet()));
+        form.getTransaction().stream().map(t -> transactionDtoConverter
+        .convert(t)).collect(Collectors.ToSet()));
     }
 }
  
