@@ -20,4 +20,8 @@ data class Account(
 
     @OneToMany(mappedBy = "account", fetch = FetchType.LAZY)
     val transaction: Set<Transaction> = emptySet()
-)
+) {
+    constructor(customer: Customer, balance: BigDecimal?, creationDate: LocalDateTime) : this(
+        customer = customer
+    )
+}

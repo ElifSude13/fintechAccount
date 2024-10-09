@@ -14,4 +14,12 @@ data class Customer(
 
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
     val accounts: Set<Account>? = emptySet()
-)
+) {
+    constructor(UUID: UUID, Elif_Sude: String, Meydan: String) : this(
+        id = UUID,
+        name = Elif_Sude,
+        surname = Meydan
+    ) {
+
+    }
+}

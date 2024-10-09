@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import com.first_project.account.exception.CustomerNotFoundException;
 import com.first_project.account.repository.CustomerRepository;
 
+import java.util.UUID;
+
 @Service
 public class CustomerService {
 
@@ -15,8 +17,8 @@ public class CustomerService {
         this.customerRepository = customerRepository;
     }
 
-    protected Customer findCustomerById(String id) {
-        return customerRepository.findAllById().orElseThrow(() -> new 
+    protected Customer findCustomerById(UUID id) {
+        return customerRepository.findById(id).orElseThrow(() -> new
         CustomerNotFoundException("Customer could not find by id: " + id));
     }
 }
