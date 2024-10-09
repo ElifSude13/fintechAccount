@@ -1,9 +1,10 @@
-package com.firstProject.account.model
+package com.first_project.account.model
 
+import com.first_project.account.model.Customer
+import jakarta.persistence.*
 import java.util.UUID
 import java.math.BigDecimal
 import java.time.LocalDateTime
-import javax.persistence.*
 
 @Entity
 data class Account(
@@ -11,14 +12,12 @@ data class Account(
     @GeneratedValue
     val id: UUID = UUID.randomUUID(),
     val balance : BigDecimal? = BigDecimal.ZERO,
-    val creationDate : LocalDateTime, 
+    val creationDate : LocalDateTime = LocalDateTime.now(),
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
     @JoinColumn(name = "customer_id", nullable = false)
-    val customer : Customer?,
+    val customer : Customer? = null,
 
     @OneToMany(mappedBy = "account", fetch = FetchType.LAZY)
-    val transaction: Set<Transaction> 
-) {
-
-}
+    val transaction: Set<Transaction> = emptySet()
+)

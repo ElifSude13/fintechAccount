@@ -1,7 +1,8 @@
-package com.firstProject.account.sevice;
+package com.first_project.account.sevice;
 
 import org.springframework.stereotype.Service;
-import com.firstProject.account.repository.AccountRepository;
+
+import com.first_project.account.repository.AccountRepository;
 
 @Service
 public class AccountService {

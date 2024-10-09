@@ -1,11 +1,12 @@
-package com.firstProject.account.dto
+package com.first_project.account.dto
 
-import com.firstProject.account.model.TransactionType
+import com.first_project.account.model.TransactionType
 import java.math.BigDecimal
 import java.time.LocalDateTime
+import java.util.UUID
 
-data class TrensactionDto(
-    val id: String?,
+data class TransactionDto(
+    val id: UUID?,
     val transactionType: TransactionType? = TransactionType.INITIAL,
     val amount: BigDecimal?,
     val transactionDate: LocalDateTime?

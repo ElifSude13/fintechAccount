@@ -1,5 +1,7 @@
 package com.first_project.account.dto;
 
+import java.util.Objects;
+import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
 import com.first_project.account.model.Account;
 
@@ -9,16 +11,21 @@ public class AccountDtoConveter {
     private final CustomerDtoConverter customerDtoConverter;
     private final TransactionDtoConverter transactionDtoConverter;
 
-    public AccountDtoConvetrer(CustomerDtoConverter customerDtoConverter, TransactionDtoConverter transactionDtoConverter) {
+    public AccountDtoConveter(CustomerDtoConverter customerDtoConverter, TransactionDtoConverter transactionDtoConverter) {
         this.customerDtoConverter = customerDtoConverter;
         this.transactionDtoConverter = transactionDtoConverter;
     }
 
-    public AccountDto convet(Account from){
-        return new AccountDto(from.getId(), from.getBalance(), from.getCreationDate()
-        customerDtoConverter.convertToAccountCustomer(from.getCustomer()),
-        form.getTransaction().stream().map(t -> transactionDtoConverter
-        .convert(t)).collect(Collectors.ToSet()));
+    public AccountDto convert(Account from){
+        return new AccountDto(
+                from.getId(),
+                from.getBalance(),
+                from.getCreationDate(),
+                customerDtoConverter.convertToAccountCustomer(from.getCustomer()),
+                Objects.requireNonNull(from.getTransaction())
+                        .stream()
+                        .map(transactionDtoConverter::convert)
+                        .collect(Collectors.toSet()));
     }
 }
  

@@ -1,9 +1,10 @@
-package com.firstProject.account.sevice;
+package com.first_project.account.sevice;
 
+import com.first_project.account.model.Customer;
 import org.springframework.stereotype.Service;
 
-import com.firstProject.account.exception.CustomerNotFoundException;
-import com.firstProject.account.repository.CustomerRepository;
+import com.first_project.account.exception.CustomerNotFoundException;
+import com.first_project.account.repository.CustomerRepository;
 
 @Service
 public class CustomerService {
@@ -14,7 +15,7 @@ public class CustomerService {
         this.customerRepository = customerRepository;
     }
 
-    protected Customer findCustomerById(Srting id) {
+    protected Customer findCustomerById(String id) {
         return customerRepository.findAllById().orElseThrow(() -> new 
         CustomerNotFoundException("Customer could not find by id: " + id));
     }

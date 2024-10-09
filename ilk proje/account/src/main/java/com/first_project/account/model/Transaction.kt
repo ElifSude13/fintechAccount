@@ -4,7 +4,7 @@ import jakarta.persistence.*
 import java.util.UUID
 import java.math.BigDecimal
 import java.time.LocalDateTime
-import com.firstProject.account.model.Account
+import com.first_project.account.model.Account
 
 @Entity
 class Transaction(
@@ -12,13 +12,21 @@ class Transaction(
     @GeneratedValue
     val id: UUID = UUID.randomUUID(),
     val transactionType: TransactionType? = TransactionType.INITIAL,
-    val amount:  BigDecimal?,
-    val transactionDate: LocalDateTime?,
+    val amount:  BigDecimal? = null,
+    val transactionDate: LocalDateTime? = null,
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = [CascadeType.ALL])
     @JoinColumn(name = "account_id", nullable = false)
     val account: Account
 ){
+    constructor() : this(
+        id = UUID.randomUUID(),
+        transactionType = TransactionType.INITIAL,
+        amount = null,
+        transactionDate = null,
+        account = Account()
+    )
+
     override fun equals(other: Any?): Boolean {
         if(this === other) return true
         if(javaClass != other?.javaClass) return false
@@ -35,7 +43,7 @@ class Transaction(
      }
 
      override fun hashCode(): Int {
-        var result = id?.hashCode() ?: 0
+        var result = id.hashCode()
         result = 31 * result + (transactionType?.hashCode() ?: 0)
         result = 31 * result + (amount?.hashCode() ?: 0)
         result = 31 * result + (transactionDate?.hashCode() ?: 0)
