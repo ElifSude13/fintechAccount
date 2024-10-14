@@ -3,6 +3,7 @@ package com.first_project.account.controller;
 import com.first_project.account.dto.AccountDto;
 import com.first_project.account.dto.CreateAccountRequest;
 import com.first_project.account.sevice.AccountService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,7 +20,7 @@ public class AccountController {
     }
 
     @PostMapping
-    public ResponseEntity<AccountDto> createAccount(@RequestBody CreateAccountRequest request){
+    public ResponseEntity<AccountDto> createAccount(@Valid @RequestBody CreateAccountRequest request){
         return ResponseEntity.ok(accountService.createAccount(request));
     }
 }

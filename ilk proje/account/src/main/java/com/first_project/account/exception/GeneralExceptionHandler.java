@@ -20,7 +20,7 @@ public class GeneralExceptionHandler extends ResponseEntityExceptionHandler {
 
     @NotNull
     @Override
-    protected ResponseEntity<Object> handleMethodArgumentNotValid(
+    protected @NotNull ResponseEntity<Object> handleMethodArgumentNotValid(
             MethodArgumentNotValidException ex, @NotNull HttpHeaders headers,
             @NotNull HttpStatus status, @NotNull WebRequest request) {
         Map<String, String> errors = new HashMap<>();

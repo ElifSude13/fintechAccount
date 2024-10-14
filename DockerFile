@@ -1,0 +1,11 @@
+FROM openjdk:11
+build
+COPY pom.xml mvnw
+COPY
+RUN /mvnw dependency: resolve
+COPY src src
+RUN ./mvnw package
+FROM openjdk:11
+WORKDIR fintechAccount
+COPY --from=build target/*jar account.jar
+ENTRYPOINT ["java", "-jar" ,"fintechAccount.jar"]
