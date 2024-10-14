@@ -34,7 +34,7 @@ public class AccountApplication implements CommandLineRunner {
 		return new OpenAPI().info(new Info()
 											.title("Account API")
 											.version(version)
-											.descriptiom(description)
+											.description(description)
 											.license(new License().name("Account API Licence")));
 	}
 
@@ -44,8 +44,8 @@ public class AccountApplication implements CommandLineRunner {
 	}
 	@Override
 	public void run(String... args) throws Exception {
-		Customer customer = customerRepository.save(new Customer("Elif Sude", "Meydan");
-		Customer customer2 = customerRepository.save(new Customer("Asiye Merve", "Meydan");
+		Customer customer = customerRepository.save(new Customer("Elif Sude", "Meydan"));
+		Customer customer2 = customerRepository.save(new Customer("Asiye Merve", "Meydan"));
 		System.out.println(customer);
 		System.out.println(customer2);
 	}

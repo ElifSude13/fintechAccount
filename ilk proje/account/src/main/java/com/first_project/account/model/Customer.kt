@@ -8,7 +8,7 @@ import com.first_project.account.model.Account
 data class Customer(
     @Id
     @GeneratedValue
-    val id: UUID = UUID.randomUUID(),
+    val id: String = UUID.randomUUID().toString(),
     val name: String? = null,
     val surname: String? = null,
 
@@ -16,9 +16,10 @@ data class Customer(
     val accounts: Set<Account>? = emptySet()
 ) {
     constructor(Elif_Sude: String, Meydan: String) : this(
-        UUID.randomUUID(),
+        "",
         name = Elif_Sude,
-        surname = Meydan
+        surname = Meydan,
+        HashSet()
     )
 
     override fun equals(other: Any?): Boolean {

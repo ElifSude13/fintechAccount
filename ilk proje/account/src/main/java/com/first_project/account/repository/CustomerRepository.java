@@ -6,7 +6,7 @@ import com.first_project.account.model.Customer;
 
 import java.util.UUID;
 
-public interface CustomerRepository extends JpaRepository<Customer, UUID
+public interface CustomerRepository extends JpaRepository<Customer, String
         >{
 
     

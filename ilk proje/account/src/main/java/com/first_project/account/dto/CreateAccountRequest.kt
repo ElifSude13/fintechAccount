@@ -4,6 +4,6 @@ import java.math.BigDecimal
 import java.util.UUID
 
 data class CreateAccountRequest (
-    val customerId: UUID,
+    val customerId: String,
     val initialCredit: BigDecimal
 )

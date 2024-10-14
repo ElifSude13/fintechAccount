@@ -5,7 +5,7 @@ import java.math.BigDecimal
 import java.util.UUID
 
 data class AccountDto(
-    val id: UUID?,
+    val id: String?,
     val balance : BigDecimal? = BigDecimal.ZERO,
     val creationDate : LocalDateTime?,
     val customer : AccountCustomerDto?,

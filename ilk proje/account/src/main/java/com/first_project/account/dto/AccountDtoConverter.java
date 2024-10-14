@@ -7,12 +7,12 @@ import org.springframework.stereotype.Component;
 import com.first_project.account.model.Account;
 
 @Component
-public class AccountDtoConveter {
+public class AccountDtoConverter {
 
     private final CustomerDtoConverter customerDtoConverter;
     private final TransactionDtoConverter transactionDtoConverter;
 
-    public AccountDtoConveter(CustomerDtoConverter customerDtoConverter, TransactionDtoConverter transactionDtoConverter) {
+    public AccountDtoConverter(CustomerDtoConverter customerDtoConverter, TransactionDtoConverter transactionDtoConverter) {
         this.customerDtoConverter = customerDtoConverter;
         this.transactionDtoConverter = transactionDtoConverter;
     }

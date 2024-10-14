@@ -10,7 +10,7 @@ import java.time.LocalDateTime
 data class Account(
     @Id
     @GeneratedValue
-    val id: UUID = UUID.randomUUID(),
+    val id: String = UUID.randomUUID().toString(),
     val balance : BigDecimal? = BigDecimal.ZERO,
     val creationDate : LocalDateTime = LocalDateTime.now(),
 
@@ -22,7 +22,7 @@ data class Account(
     val transaction: Set<Transaction> = emptySet()
 ) {
     constructor(customer: Customer, balance: BigDecimal?, creationDate: LocalDateTime) : this(
-        UUID.randomUUID(),
+        "",
         customer = customer,
         balance = balance,
         creationDate = creationDate

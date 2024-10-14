@@ -1,7 +1,7 @@
 package com.first_project.account.sevice;
 
 import com.first_project.account.dto.AccountDto;
-import com.first_project.account.dto.AccountDtoConveter;
+import com.first_project.account.dto.AccountDtoConverter;
 import com.first_project.account.dto.CreateAccountRequest;
 import com.first_project.account.model.Account;
 import com.first_project.account.model.Customer;
@@ -20,11 +20,11 @@ public class AccountService {
     
     private final AccountRepository accountRepository;
     private final CustomerService customerService;
-    private final AccountDtoConveter convert;
+    private final AccountDtoConverter convert;
     private final Clock clock;
 
     public AccountService(AccountRepository accountRepository, CustomerService customerService,
-                          AccountDtoConveter convert, Clock clock) {
+                          AccountDtoConverter convert, Clock clock) {
         this.accountRepository = accountRepository;
         this.customerService = customerService;
         this.convert = convert;
