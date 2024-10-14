@@ -1,6 +1,7 @@
 package com.first_project.account.dto;
 
 import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
 import com.first_project.account.model.Account;
@@ -21,7 +22,7 @@ public class AccountDtoConveter {
                 from.getId(),
                 from.getBalance(),
                 from.getCreationDate(),
-                customerDtoConverter.convertToAccountCustomer(from.getCustomer()),
+                customerDtoConverter.convertToAccountCustomer(Optional.ofNullable(from.getCustomer())),
                 Objects.requireNonNull(from.getTransaction())
                         .stream()
                         .map(transactionDtoConverter::convert)

@@ -4,7 +4,6 @@ import jakarta.persistence.*
 import java.util.UUID
 import java.math.BigDecimal
 import java.time.LocalDateTime
-import com.first_project.account.model.Account
 
 @Entity
 class Transaction(
@@ -27,11 +26,11 @@ class Transaction(
         account = Account()
     )
 
-    constructor(amount: BigDecimal, account: Account) : this(
+    constructor(amount: BigDecimal, transactionDate: LocalDateTime, account: Account) : this(
         id = UUID.randomUUID(),
         transactionType = TransactionType.INITIAL,
         amount = amount,
-        transactionDate = LocalDateTime.now(),
+        transactionDate = transactionDate,
         account = account
     )
 
