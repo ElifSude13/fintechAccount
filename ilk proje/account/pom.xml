@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.1.0</version>
         <relativePath/>
     </parent>
-    
+
     <groupId>com.firstProject</groupId>
     <artifactId>account</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -20,18 +20,24 @@
         <java.version>17</java.version>
         <kotlin.version>1.8.0</kotlin.version>
     </properties>
-    
+
     <dependencies>
         <!-- Spring Boot JPA for Hibernate and database interaction -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
-        
+
         <!-- Spring Boot Web for RESTful APIs -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- Spring Web (if needed) -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
         </dependency>
 
         <!-- Development tools for easier development -->
@@ -41,7 +47,7 @@
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
-        
+
         <!-- Kotlin dependencies -->
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
@@ -85,20 +91,15 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>5.9.3</version> <!-- En güncel versiyonu kullanabilirsiniz -->
+            <version>5.9.3</version> <!-- Most recent version -->
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
-        </dependency>
+
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-ui</artifactId>
-            <version>1.7.0</version> <!-- En güncel sürümü kullanabilirsiniz -->
+            <version>1.7.0</version> <!-- Most recent version -->
         </dependency>
-
     </dependencies>
 
     <build>
@@ -108,7 +109,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            
+
             <!-- Kotlin Maven Plugin for Kotlin support -->
             <plugin>
                 <artifactId>kotlin-maven-plugin</artifactId>
