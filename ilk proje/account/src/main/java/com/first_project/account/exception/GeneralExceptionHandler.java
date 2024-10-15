@@ -3,6 +3,7 @@ package com.first_project.account.exception;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -20,9 +21,9 @@ public class GeneralExceptionHandler extends ResponseEntityExceptionHandler {
 
     @NotNull
     @Override
-    protected @NotNull ResponseEntity<Object> handleMethodArgumentNotValid(
-            MethodArgumentNotValidException ex, @NotNull HttpHeaders headers,
-            @NotNull HttpStatus status, @NotNull WebRequest request) {
+    protected ResponseEntity<Object> handleMethodArgumentNotValid(
+            MethodArgumentNotValidException ex, HttpHeaders headers,
+            HttpStatusCode status, WebRequest request) {
         Map<String, String> errors = new HashMap<>();
         ex.getBindingResult().getAllErrors().forEach((error) -> {
             String fieldName = ((FieldError) error).getField();
