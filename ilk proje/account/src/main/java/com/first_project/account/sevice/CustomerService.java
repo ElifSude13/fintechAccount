@@ -23,12 +23,12 @@ public class CustomerService {
         this.converter = converter;
     }
 
-    protected Customer findCustomerById(String id) {
+    protected Customer findCustomerById(UUID id) {
         return customerRepository.findById(id).orElseThrow(() -> new
         CustomerNotFoundException("Customer could not find by id: " + id));
     }
 
-    public CustomerDto getCustomerById(String customerId) {
+    public CustomerDto getCustomerById(UUID customerId) {
         return converter.convertToCustomerDto(findCustomerById(customerId));
     }
 

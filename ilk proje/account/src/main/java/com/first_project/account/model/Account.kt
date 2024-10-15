@@ -9,8 +9,8 @@ import java.time.LocalDateTime
 @Entity
 data class Account(
     @Id
-    @GeneratedValue
-    val id: String = UUID.randomUUID().toString(),
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    val id: UUID = UUID.randomUUID(),
     val balance : BigDecimal? = BigDecimal.ZERO,
     val creationDate : LocalDateTime = LocalDateTime.now(),
 
@@ -22,7 +22,7 @@ data class Account(
     val transaction: Set<Transaction> = emptySet()
 ) {
     constructor(customer: Customer, balance: BigDecimal?, creationDate: LocalDateTime) : this(
-        "",
+        UUID.randomUUID(),
         customer = customer,
         balance = balance,
         creationDate = creationDate

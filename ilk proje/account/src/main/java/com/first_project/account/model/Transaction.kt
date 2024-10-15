@@ -8,8 +8,8 @@ import java.time.LocalDateTime
 @Entity
 class Transaction(
     @Id
-    @GeneratedValue
-    val id: String = UUID.randomUUID().toString(),
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    val id: UUID = UUID.randomUUID(),
     val transactionType: TransactionType? = TransactionType.INITIAL,
     val amount:  BigDecimal? = null,
     val transactionDate: LocalDateTime? = null,
@@ -19,7 +19,7 @@ class Transaction(
     val account: Account
 ){
     constructor() : this(
-        id = "",
+        UUID.randomUUID(),
         transactionType = TransactionType.INITIAL,
         amount = null,
         transactionDate = null,
@@ -27,7 +27,7 @@ class Transaction(
     )
 
     constructor(amount: BigDecimal, transactionDate: LocalDateTime, account: Account) : this(
-        id = "",
+        UUID.randomUUID(),
         transactionType = TransactionType.INITIAL,
         amount = amount,
         transactionDate = transactionDate,

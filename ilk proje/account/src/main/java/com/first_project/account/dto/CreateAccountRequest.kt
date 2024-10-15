@@ -7,7 +7,7 @@ import java.util.UUID
 
 data class CreateAccountRequest (
     @field:NotBlank
-    val customerId: String,
+    val customerId: UUID,
     @field:Min(0)
     val initialCredit: BigDecimal
 )
